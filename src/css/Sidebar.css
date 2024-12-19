@@ -1,0 +1,85 @@
+.hamburger {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.bar {
+  width: 30px;
+  height: 5px;
+  background-color: white; /* Set the background color of the bars */
+  border: 1px solid black; /* Add black outline to each bar */
+  transition: 0.3s ease;
+}
+
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(40, 44, 52, 0.85); /* Semi-transparent background (rgba with alpha value) */
+  transition: left 0.3s ease-in-out;
+  padding-top: 60px;
+  z-index: 50;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover {
+  background-color: #575757;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.sidebar ul li a:hover {
+  background-color: #575757;
+}
+
+.sidebar ul li a.active {
+  color: #f0f0f0;
+  font-weight: bold;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
