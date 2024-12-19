@@ -29,7 +29,7 @@ const HamburgerSidebar: React.FC = () => {
           {/* Use NavLink with className function for active link styling */}
           <li>
             <NavLink
-              to="/"
+              to="/portfolio"
               onClick={() => setIsOpen(false)}
               className={({ isActive }) => (isActive ? 'active' : '')} // Dynamically apply active class
             >
