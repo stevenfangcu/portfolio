@@ -1,0 +1,121 @@
+.tiny-badge {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1.25rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skill-item {
+  padding: 0.5rem;
+  position: relative;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin: 0.25rem;
+}
+
+.skill-item:hover {
+  border-color: #444;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skill-content {
+  position: relative;
+  cursor: pointer;
+}
+
+.hover-text {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  border-radius: 4px;
+  width: 200px;
+  color: white;
+  font-size: 0.9rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.skill-content:hover .hover-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.skills-description {
+  text-align: center;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.legend {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.legend ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.legend-link {
+  color: #666;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.legend-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.resume-link {
+  color: #4ade80;  /* or any color you prefer */
+  border: 1px solid #4ade80;
+}
+
+.resume-link:hover {
+  background-color: rgba(74, 222, 128, 0.1);  /* subtle green background on hover */
+  color: #4ade80;
+}
+
+.express-badge {
+  width: 3rem !important;  /* Override the default tiny-badge width */
+  height: 2rem;  /* Keep the same height as tiny-badge */
+  object-fit: contain;  /* Maintain aspect ratio */
+}
+
+.dev-notice {
+  background-color: rgba(255, 193, 7, 0.1);
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  text-align: center;
+  color: #ffc107;
+}
+
+.dev-notice p {
+  margin: 0;
+  font-size: 1.1rem;
+}

@@ -1,7 +1,40 @@
-import React from 'react';
+import Skills from "./about/Skills";
+import resumePDF from "../assets/Resume_2024.pdf";
 
-const About: React.FC = () => {
-  return <h1>About Us</h1>;
-};
+export default function About() {
+  const sections = [
+    { id: "skills", title: "Skills & Technologies" },
+    { id: "experience", title: "Experience" },
+    { id: "education", title: "Education" }
+  ];
 
-export default About;
+  return (
+    <>
+      <nav className="legend">
+        <ul>
+          {sections.map((section) => (
+            <li key={section.id}>
+              <a href={`#${section.id}`} className="legend-link">
+                {section.title}
+              </a>
+            </li>
+          ))}
+          <li>
+            <a 
+              href={resumePDF}
+              download="Resume_2024.pdf"
+              className="legend-link resume-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Resume
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <Skills />
+      {/* Add other sections here */}
+    </>
+  );
+}

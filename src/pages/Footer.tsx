@@ -27,15 +27,6 @@ const Footer: React.FC = () => {
         <a href="mailto:stevenfangcu@icloud.com">
           Email
         </a>
-
-        {/* Portfolio */}
-        <a
-          href="https://yourportfolio.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Portfolio
-        </a>
       </div>
       <p>© 2024 Steven Fang. All rights reserved.</p>
     </footer>

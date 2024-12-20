@@ -3,6 +3,11 @@ import './Pages.css';
 const Portfolio: React.FC = () => {
   return (
     <div className="portfolio-container">
+      {/* Development Notice */}
+      <div className="dev-notice">
+        <p>🚧 This site is currently under development. More exciting projects coming soon! 🚧</p>
+      </div>
+
       {/* Hero Section */}
       <section className="hero-section">
         <div className="hero-content">
