@@ -1,6 +1,5 @@
 import Skills from "./about/Skills";
 import Experience from "./about/Experience";
-import resumePDF from "../assets/Resume_2024.pdf";
 import { useState, useEffect, useRef } from "react";
 
 export default function About() {
