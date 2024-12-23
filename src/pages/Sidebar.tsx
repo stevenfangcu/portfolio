@@ -45,15 +45,6 @@ const HamburgerSidebar: React.FC = () => {
               About
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/resume"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              Resume
-            </NavLink>
-          </li>
         </ul>
       </div>
     </div>

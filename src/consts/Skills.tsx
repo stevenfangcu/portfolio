@@ -30,6 +30,26 @@ export const skills = [
       title: "Azure",
       img: "azure.png",
       summary: "Experience with Azure cloud services including App Service, Azure Functions, and deployment of scalable applications on cloud infrastructure."
+    },
+    {
+      title: "Node.js",
+      img: "nodejs.png",
+      summary: "Built scalable backend services using Node.js runtime. Experience with async programming, event-driven architecture, and npm ecosystem."
+    },
+    {
+      title: "Git",
+      img: "git.png",
+      summary: "Proficient in version control using Git, including branching strategies, code review workflows, and collaborative development practices."
+    },
+    {
+      title: "Jest/Testing",
+      img: "jest.png",
+      summary: "Experience with unit testing, integration testing, and test-driven development using Jest and React Testing Library."
+    },
+    {
+      title: "Bootstrap",
+      img: "bootstrap.png",
+      summary: "Expertise in building responsive and modern UIs using Bootstrap, including custom theming, components, and responsive grid system."
     }
 ];
   
