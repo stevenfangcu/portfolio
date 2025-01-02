@@ -5,6 +5,8 @@ import About from './pages/About';
 import Footer from './pages/Footer';
 import Resume from './pages/Resume';
 import Sidebar from './pages/Sidebar';
+import Projects from './pages/projects/Projects';
+import Stock from './pages/hidden/StockDash';
 import './App.css';
 
 const App: React.FC = () => {
@@ -21,6 +23,10 @@ const App: React.FC = () => {
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/projects" element={<Projects />} />
+            
+            {/* Hidden route */}
+            <Route path="/stock" element={<Stock />} />
             
             {/* Redirect uppercase routes to lowercase */}
             <Route path="/About" element={<Navigate to="/about" replace />} />

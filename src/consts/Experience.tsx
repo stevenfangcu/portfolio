@@ -36,5 +36,47 @@ export const experiences: ExperienceItem[] = [
       "RESTful APIs",
       "Microblink"
     ]
+  },
+  {
+    title: "Software Developer",
+    company: "Tata Consultancy Services",
+    location: "Toronto, ON",
+    duration: "February 2021 - April 2022",
+    description: [
+      "Led quality assurance for key RBC application projects, improving performance, stability, and security.",
+      "Facilitated seamless collaboration between onshore and offshore teams, boosting productivity and team morale.",
+      "Automated pre-release testing processes with robust scripts, streamlining onboarding and enhancing feature quality."
+    ],
+    technologies: [
+      "Java",
+      "Selenium",
+      "TestNG",
+      "Jenkins",
+      "Git",
+      "JIRA",
+      "Agile",
+      "Test Automation"
+    ]
+  },
+  {
+    title: "Data Analyst",
+    company: "Department of National Defence",
+    location: "Ottawa, ON",
+    duration: "April 2019 - September 2019",
+    description: [
+      "Developed Python scripts to classify, reorganize, and clean datasets, enhancing accuracy and usability.",
+      "Implemented supervised and unsupervised machine learning algorithms for predictive analysis and clustering, improving decision-making accuracy.",
+      "Performed feature extraction and text-based data manipulation to optimize data for analysis."
+    ],
+    technologies: [
+      "Python",
+      "Machine Learning",
+      "Data Analysis",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Data Visualization",
+      "SQL"
+    ]
   }
 ];

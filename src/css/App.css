@@ -1,0 +1,23 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem;
+  margin-left: 0;
+}
+
+@media (min-width: 992px) {
+  .main-content {
+    margin-left: 250px; /* Sidebar width */
+  }
+}
+
+@media (max-width: 991px) {
+  .main-content {
+    padding-bottom: 4rem; /* Space for mobile nav */
+  }
+} 

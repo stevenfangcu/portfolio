@@ -1,54 +1,54 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import '../css/Sidebar.css'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../css/Sidebar.css';
 
-const HamburgerSidebar: React.FC = () => {
+const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleSidebar = () => {
+  const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div>
-      {/* Hamburger Icon */}
-      <div className="hamburger" onClick={toggleSidebar}>
-        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
-        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
-        <div className={`bar ${isOpen ? 'open' : ''}`}></div>
-      </div>
+    <>
+      <div className={`sidebar-wrapper ${isOpen ? 'expanded' : 'collapsed'}`}>
+        <button 
+          className="toggle-btn"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <div className="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
 
-      {/* Sidebar */}
-      <div
-        className="sidebar"
-        style={{
-          left: isOpen ? '0' : '-250px', // Toggle the sidebar's position
-        }}
-      >
-        <ul>
-          {/* Use NavLink with className function for active link styling */}
-          <li>
-            <NavLink
-              to="/portfolio"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => (isActive ? 'active' : '')} // Dynamically apply active class
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/about"
-              onClick={() => setIsOpen(false)}
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              About
-            </NavLink>
-          </li>
-        </ul>
+        <nav className="sidebar">
+          <div className="sidebar-content">
+            <h1 className="sidebar-title">
+              {isOpen ? 'Steven Fang' : 'SF'}
+            </h1>
+            <div className="nav-links">
+              <Link to="/portfolio" className="nav-link" title="Portfolio">
+                <i className="fas fa-folder"></i>
+                {isOpen && <span>Portfolio</span>}
+              </Link>
+              <Link to="/about" className="nav-link" title="About">
+                <i className="fas fa-user"></i>
+                {isOpen && <span>About</span>}
+              </Link>
+              <Link to="/projects" className="nav-link" title="Projects">
+                <i className="fas fa-code"></i>
+                {isOpen && <span>Projects</span>}
+              </Link>
+            </div>
+          </div>
+        </nav>
       </div>
-    </div>
+      {isOpen && <div className="sidebar-backdrop" onClick={toggleMenu}></div>}
+    </>
   );
 };
 
-export default HamburgerSidebar;
+export default Sidebar;

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../../css/Pages.css";
 import { skills } from "../../consts/Skills";
 import dockerImg from "../../assets/docker.png";
@@ -26,48 +27,92 @@ const imageMap: { [key: string]: string } = {
   "node.png": nodeImg,
 };
 
+interface SkillModalProps {
+  skill: {
+    title: string;
+    summary: string;
+  } | null;
+  onClose: () => void;
+}
+
+const SkillModal: React.FC<SkillModalProps> = ({ skill, onClose }) => {
+  if (!skill) return null;
+
+  return (
+    <div className="skill-modal-backdrop" onClick={onClose}>
+      <div className="skill-modal" onClick={e => e.stopPropagation()}>
+        <button 
+          className="modal-close-btn" 
+          onClick={onClose}
+          aria-label="Close"
+        >
+          ×
+        </button>
+        <h3 className="mb-3">{skill.title}</h3>
+        <p>{skill.summary}</p>
+      </div>
+    </div>
+  );
+};
+
 export default function Skills() {
-  const getImageClass = (title: string) => {
-    if (title === "Express.js") {
-      return "tiny-badge express-badge me-3";
+  const [selectedSkill, setSelectedSkill] = useState<typeof skills[0] | null>(null);
+
+  const getImageStyle = (skill: typeof skills[0]) => {
+    const baseStyle: React.CSSProperties = {
+      objectFit: 'contain',
+      marginRight: '0.75rem'
+    };
+
+    if (skill.imgSize) {
+      return {
+        ...baseStyle,
+        width: skill.imgSize.width,
+        height: skill.imgSize.height
+      };
     }
-    return "tiny-badge me-3";
+
+    return {
+      ...baseStyle,
+      width: 24,
+      height: 24
+    };
   };
 
   return (
     <section id="skills" className="mb-5">
-      <div className="container">
+      <div className="container px-4">
         <div className="text-center mb-4">
-          <h2 className="mb-3">
+          <h2 className="mb-3 fs-2">
             Skills &amp; Technologies
           </h2>
-          <p className="text-secondary mb-4">
-            A showcase of my technical expertise and experience with various technologies.
-            Hover over each skill to learn more about my proficiency and projects.
-          </p>
         </div>
-        <div className="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
           {skills.map((skill) => (
             <div key={skill.title} className="col">
-              <div className="card bg-dark border-secondary h-100">
-                <div className="card-body d-flex align-items-center justify-content-center position-relative">
+              <div 
+                className="card bg-dark border-secondary h-100 skill-card"
+                onClick={() => setSelectedSkill(skill)}
+              >
+                <div className="card-body d-flex align-items-center p-3">
                   <img 
                     src={imageMap[skill.img]} 
                     alt={skill.title}
-                    className={getImageClass(skill.title)}
+                    style={getImageStyle(skill)}
                   />
-                  <span className="text-white">
+                  <span className="text-white text-break">
                     {skill.title}
                   </span>
-                  <div className="skill-hover-text text-center">
-                    <p className="mb-0">{skill.summary}</p>
-                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <SkillModal 
+        skill={selectedSkill} 
+        onClose={() => setSelectedSkill(null)} 
+      />
     </section>
   );
 } 
