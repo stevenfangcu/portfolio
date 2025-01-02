@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getDailyTimeSeries, getGlobalQuote, searchSymbol } from '../../../utils/alphaVantageApi';
+import { getDailyTimeSeries } from '../../../utils/alphaVantageApi';
 
 export const StockData = () => {
   const [stockData, setStockData] = useState<any>(null);
