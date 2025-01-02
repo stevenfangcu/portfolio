@@ -46,7 +46,11 @@ const StockData = () => {
       setLoading(true);
       setError(null);
       const data = await getDailyTimeSeries(symbol);
-      setStockData(data);
+      if ('Time Series (Daily)' in data) {
+        setStockData(data as StockDataType);
+      } else {
+        throw new Error('Invalid data format received from API');
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');
     } finally {
