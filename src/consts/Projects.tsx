@@ -21,14 +21,5 @@ export const projects: ProjectItem[] = [
       "Alpha Vantage API",
       "Redis"
     ],
-    githubUrl: "https://github.com/stevenfang7/stock-market-dashboard",
-    // imageUrl: "/images/stock-dashboard.png"  // Add when you have a screenshot
-  },
-  {
-    title: "Portfolio Website",
-    description: "A personal portfolio website built with React and TypeScript, featuring responsive design and modern UI components.",
-    technologies: ["React", "TypeScript", "Bootstrap", "CSS"],
-    githubUrl: "https://github.com/stevenfang7/portfolio",
-    liveUrl: "https://stevenfang.com"
   }
 ]; 

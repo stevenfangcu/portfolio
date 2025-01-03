@@ -769,3 +769,40 @@ html {
   border-color: #4ade80;
   box-shadow: 0 0 0 0.25rem rgba(74, 222, 128, 0.25);
 }
+
+.portfolio-container {
+  min-height: calc(100vh - 100px);
+}
+
+.tech-stack .badge {
+  font-size: 0.85rem;
+  padding: 0.5em 1em;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.list-unstyled li {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.list-unstyled li:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .lead {
+    font-size: 1.1rem;
+  }
+}
