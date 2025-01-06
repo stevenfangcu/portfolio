@@ -806,3 +806,84 @@ html {
     font-size: 1.1rem;
   }
 }
+
+.lazy-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: Add different animations for different viewport sizes */
+@media (max-width: 768px) {
+  .lazy-section {
+    transform: translateY(10px);
+  }
+}
+
+/* Disable animations if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lazy-section {
+    transition: none;
+    transform: none;
+  }
+}
+
+.leetcode-container {
+  min-height: calc(100vh - 100px);
+}
+
+.leetcode-container .list-group-item {
+  transition: all 0.2s ease;
+}
+
+.leetcode-container .list-group-item:hover {
+  background-color: rgba(74, 222, 128, 0.1) !important;
+  color: #4ade80 !important;
+}
+
+.leetcode-container .list-group-item.active {
+  background-color: #4ade80 !important;
+  border-color: #4ade80 !important;
+}
+
+.leetcode-container pre {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.leetcode-container code {
+  font-family: 'Consolas', 'Monaco', monospace;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .leetcode-container .col-md-4 {
+    margin-bottom: 1rem;
+  }
+}
+
+.leetcode-container .form-select {
+  cursor: pointer;
+}
+
+.leetcode-container .form-select:focus {
+  border-color: #4ade80;
+  box-shadow: 0 0 0 0.25rem rgba(74, 222, 128, 0.25);
+}
+
+.leetcode-container .form-select option {
+  background-color: #212529;
+  color: white;
+}
+
+/* For Firefox */
+.leetcode-container .form-select option:hover {
+  background-color: #4ade80;
+}

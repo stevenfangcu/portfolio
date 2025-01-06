@@ -7,6 +7,7 @@ import Resume from './pages/Resume';
 import Sidebar from './pages/Sidebar';
 import Projects from './pages/projects/Projects';
 import Stock from './pages/hidden/StockDash';
+import LeetCode from './pages/hidden/LeetCode';
 import './App.css';
 
 const App: React.FC = () => {
@@ -27,6 +28,7 @@ const App: React.FC = () => {
             
             {/* Hidden route */}
             <Route path="/stock" element={<Stock />} />
+            <Route path="/leetcode" element={<LeetCode />} />
             
             {/* Redirect uppercase routes to lowercase */}
             <Route path="/About" element={<Navigate to="/about" replace />} />

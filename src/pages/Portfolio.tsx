@@ -1,15 +1,49 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import '../css/Pages.css';
 
 const Portfolio = () => {
   const navigate = useNavigate();
+  const projectsRef = useRef<HTMLElement>(null);
+  const skillsRef = useRef<HTMLElement>(null);
+  const introRef = useRef<HTMLElement>(null);
   
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
   };
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('section-visible');
+          // Once the section is visible, we can stop observing it
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+
+    // Observe all sections
+    [introRef, projectsRef, skillsRef].forEach(ref => {
+      if (ref.current) {
+        ref.current.classList.add('lazy-section');
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleDemoClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -24,7 +58,7 @@ const Portfolio = () => {
           className="text-center mb-5"
           {...fadeIn}
         >
-          <h1 className="display-4 fw-bold text-black mb-4">
+          <h1 className="display-4 fw-bold text-white mb-4">
             Full Stack Developer
           </h1>
           <p className="lead text-secondary mb-4">
@@ -35,7 +69,7 @@ const Portfolio = () => {
               href="https://github.com/stevenfangcu" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="btn btn-outline-primary"
+              className="btn btn-outline-light"
             >
               <i className="fab fa-github me-2"></i>
               GitHub
@@ -53,11 +87,9 @@ const Portfolio = () => {
         </motion.section>
 
         {/* Introduction Section */}
-        <motion.section
-          className="mb-5"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+        <section
+          ref={introRef}
+          className="mb-5 lazy-section"
         >
           <div className="row justify-content-center">
             <div className="col-lg-10">
@@ -96,14 +128,12 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Featured Projects */}
-        <motion.section 
-          className="mb-5"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+        <section 
+          ref={projectsRef}
+          className="mb-5 lazy-section"
         >
           <h2 className="text-white mb-4">Featured Projects</h2>
           <div className="row g-4">
@@ -151,13 +181,12 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Skills Overview */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+        <section
+          ref={skillsRef}
+          className="lazy-section"
         >
           <h2 className="text-white mb-4">Technical Skills</h2>
           <div className="row g-4">
@@ -201,7 +230,7 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
       </div>
     </div>
   );

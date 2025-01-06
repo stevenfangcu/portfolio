@@ -6,13 +6,7 @@ const Projects = () => {
   const navigate = useNavigate();
 
   const handleProjectClick = (project: typeof projects[0]) => {
-    if (project.title === "Stock Market Dashboard") {
-      navigate('/stock');
-    } else if (project.liveUrl) {
-      window.open(project.liveUrl, '_blank');
-    } else if (project.githubUrl) {
-      window.open(project.githubUrl, '_blank');
-    }
+    navigate(project.navigation);
   };
 
   return (
@@ -49,7 +43,7 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="project-links" onClick={(e) => e.stopPropagation()}>
-                    {/* {project.githubUrl && (
+                    {project.githubUrl && (
                       <a 
                         href={project.githubUrl}
                         target="_blank"
@@ -59,7 +53,7 @@ const Projects = () => {
                         <i className="fab fa-github me-2"></i>
                         Code
                       </a>
-                    )} */}
+                    )}
                     {project.liveUrl && (
                       <a 
                         href={project.liveUrl}
