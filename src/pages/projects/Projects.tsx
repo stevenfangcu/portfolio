@@ -6,7 +6,11 @@ const Projects = () => {
   const navigate = useNavigate();
 
   const handleProjectClick = (project: typeof projects[0]) => {
-    navigate(project.navigation);
+    if (project.navigation) {
+      navigate(project.navigation);
+    } else {
+      window.open(project.githubUrl, '_blank');
+    }
   };
 
   return (
