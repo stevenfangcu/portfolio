@@ -12,7 +12,7 @@ export const experiences: ExperienceItem[] = [
     title: "Full Stack Developer",
     company: "LawyerDoneDeal Corporation",
     location: "Toronto, ON",
-    duration: "April 2022 - Present",
+    duration: "April 2022 - March 2025",
     description: [
       "Designed and maintained web applications using JavaScript, React.js, TypeScript, and CSS, serving users across platforms.",
       "Designed and implemented RESTful APIs to enhance frontend functionality, generate business data, and facilitate third-party integrations, resulting in a 20% reduction in manual processing time.",
